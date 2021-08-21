@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Font Awesome 5 Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    
+    <!--Typed.js-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typed.js"></script>
+
+    <title>Welcome! to Textutils</title>
+    <style>
+      #corner-btn{
+        position: absolute;
+        right: 0;
+        top: 15px;
+        padding: 4px;
+      }
+      .copy-area{
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        border-radius: 4pt;
+        max-width: 30cm;
+        /* min-height: 5cm; */
+        box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.5);
+        display: block;
+      }
+      .fly{
+        float: right;
+        margin-right: 8px;
+      }
+    </style>
+</head>
+
+<body style="min-height: 100vh;">
+    <!-- Navigation top -->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid"><div class="container-fluid">
+            <a class="navbar-brand" href="#"><em><strong>Textutils</strong></em></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" style="float: right;" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link"  href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about">About Us</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="aboutAnalyze">Analyze</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    We can Do for you
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="">Remove Punchtuations</a></li>
+                    <li><a class="dropdown-item" href="">UPPERCASE </a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="aboutAnalyze">Something else here</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Thanks For coming</a>
+                </li>
+              </ul>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <!-- Navigation Ends Here -->
+    <!-- <h1>Hello, world!</h1> -->
+    
+    <!-- Alerts -->
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Welcome to <em>TextUtils</em>!</strong><span id="typing"> </span>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <!-- Alerts Ends Here -->
+
+    <!-- container -->
+    <div class="container">
+        <h1>Your Analysed Text - {{ purpose }}</h1>
+        <p style="font-size: 24px;">
+        <span>Your Analysed Text is Given below-</span>
+        </p>
+        <p>
+          <div class="copy-area">
+            <button  class="btn btn-outline-dark mt-2 fly" onclick="CopyToClipboard('copy-text')"> Copy</button>
+                <pre id="copy-text" class="p-4"><h2>{{ analyzed_text }}</h2></pre>
+          </div>
+        </p>
+        <a href="/"><button class="btn btn-outline-dark mt-2"><i class="far fa-hand-point-left"> Back</i></button></a>
+    </div>
+
+    <!-- Container Ends Here -->
+
+    <!-- Footer -->
+    <Footer style="position: sticky; top: 100%;" class="mt-2">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container">
+                <span style="color: ivory;">COPYRIGHT
+                    <i class='far fa-copyright'></i>
+                    <a class="navbar-brand" href="/"><em><strong>Textutils</strong></em></a>
+                </span>
+                <span style="color: ivory; cursor: pointer;">
+                    Follow My Account on GitHub &nbsp; <a class="navbar-brand" href="http://github.com"><i class='fab fa-github-alt' style="font-size: 28px;"></i></a>
+                </span>
+            </div>
+          </nav>
+    </Footer>
+    <!-- Footer Ends Here -->
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+
+  
+  <!-- Editable Core JavaScript -->
+
+  <!-- Typed.js Dont Touch it [For Alert]-->
+  <script>
+    var typed = new Typed('#typing', {
+      strings: ["&nbsp; <strong>Sucessfully!</strong> Your text has been analyzed By <strong><em>TextUtils</em></strong>",
+       "&nbsp; Thanks For Visit <em>Textutils</em> <i class='fas fa-smile-beam' style='font color:darkgreen'></i>",
+      ],
+      backSpeed: 15,
+      smartBackspace: true,
+      backDelay: 1200,
+      startDelay: 1000,
+      typeSpeed: 25,
+      loop: false,
+    });
+  </script>
+  <!-- Typed.js Dont Touch it [For Alert] Ends Here-->
+
+  <!-- Copy Function JavaScript -->
+  <script>
+    function CopyToClipboard(containerid) {
+  if (document.selection) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(document.getElementById(containerid));
+    range.select().createTextRange();
+    document.execCommand("copy");
+  } else if (window.getSelection) {
+    var range = document.createRange();
+    range.selectNode(document.getElementById(containerid));
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+    alert("Text has been copied")
+  }
+}
+  </script>
+  <!-- Copy Function JavaScript Ends Here -->
+
+  <!-- Editable Core JavaScript Ends Here -->
+
+
+</body>
+
+</html>
